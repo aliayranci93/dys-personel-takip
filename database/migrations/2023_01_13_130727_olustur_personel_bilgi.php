@@ -32,16 +32,15 @@ class OlusturPersonelBilgi extends Migration
             $table->text('odemeye_esas_ayligi')->nullable();
             $table->text('kazanilmis_hak_ayligi')->nullable();
             $table->timestamp('kidem_baslama_tarihi',$precision=0)->nullable();
-            $table->integer('sozlesmeli_olup_olmadigi');
+            $table->integer('sozlesmeli_olup_olmadigi')->default(0);
             $table->timestamp('ilk_memuriyete_giris_tarihi',$precision=0)->nullable();
             $table->text('ilk_memuriyete_giris_kurumu')->nullable();
             $table->timestamp('hdtm_dtm_eko_giris_tarihi',$precision=0)->nullable();
             $table->timestamp('ihrct_gnl_mdr_en_sn_grv_bslm_tar',$precision=0)->nullable();
             $table->text('halen_gorev_yaptigi_daire')->nullable();
-            $table->text('olusturan_kullanici');
-            $table->timestamp('olusturma_tarihi',$precision=0)->useCurrent();
-            $table->text('guncelleyen_kullanici');
-            $table->timestamp('guncellenme_tarihi',$precision=0)->useCurrent();
+            $table->text('olusturan_kullanici')->default('');
+            $table->text('guncelleyen_kullanici')->default('');
+            $table->timestamps();
           
         });
     }

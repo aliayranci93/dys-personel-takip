@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\personel\PersonelBilgiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/personel-kaydet', [PersonelBilgiController::class, 'create'])->name('personel-kaydet-ekran');
+Route::post('/personel-kaydet', [PersonelBilgiController::class, 'store'])->name('personel-kaydet');
