@@ -16,6 +16,9 @@ class PersonelBilgiController extends Controller
     public function index()
     {
         //
+        $personelBilgi = PersonelBilgi::get();
+       // dd($personelBilgi);
+        return view('personel-bilgi-listesi',compact('personelBilgi'));
     }
 
     /**
@@ -25,7 +28,7 @@ class PersonelBilgiController extends Controller
      */
     public function create()
     {
-        
+      
         return view('personel-bilgi-kayit');
     }
 
@@ -67,6 +70,9 @@ class PersonelBilgiController extends Controller
     public function edit($id)
     {
         //
+        $personelBilgi = PersonelBilgi::find($id);
+
+        return view('personel-bilgi-duzenle',compact('personelBilgi'));
     }
 
     /**

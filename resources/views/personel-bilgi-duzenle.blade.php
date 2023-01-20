@@ -17,7 +17,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="sira_no">Sıra No</label>  
   <div class="col-md-4">
-  <input id="sira_no" name="sira_no" type="text" placeholder="SıraNo" class="form-control input-md">
+  <input id="sira_no" name="sira_no" type="text" placeholder="SıraNo" value="{{$personelBilgi->sira_no}}" class="form-control input-md">
   <span class="help-block">help</span>  
   </div>
 </div>
@@ -187,7 +187,7 @@
   <label class="col-md-4 control-label" for="sozlesmeli_olup_olmadigi">Sözleşmeli Mi ?</label>
   <div class="col-md-4"> 
     <label class="radio-inline" for="sozlesmeli_olup_olmadigi-0">
-      <input type="radio" name="sozlesmeli_olup_olmadigi" id="sozlesmeli_olup_olmadigi-0" value=1 checked="checked">
+      <input type="radio" name="sozlesmeli_olup_olmadigi" id="sozlesmeli_olup_olmadigi-0" value="" checked="checked">
       Evet
     </label> 
     <label class="radio-inline" for="sozlesmeli_olup_olmadigi-1">
