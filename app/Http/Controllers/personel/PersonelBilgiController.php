@@ -49,7 +49,7 @@ class PersonelBilgiController extends Controller
         return view('personel-bilgi-kayit');
         
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -82,9 +82,18 @@ class PersonelBilgiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+       
+
+        $personelBilgi=$request->all();
+        unset($personelBilgi['_token']);
+        unset($personelBilgi['button1id']);
+       //dd($personelBilgi);
+        PersonelBilgi::whereId($request->id)->update($personelBilgi);
+       
+
+        return view('personel-bilgi-kayit');
     }
 
     /**
