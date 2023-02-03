@@ -735,7 +735,7 @@
                            <p class="text-muted">Türkiye Cumhuriyeti Ticaret Bakanlığı Takip Sistemi</p>
                         </div>
                         <div class="card-body">
-                           <form method="POST" action="{{route('personel-update')}}">
+                           <form method="POST" action="{{route('personel-duzenle')}}">
                            @csrf
                            <input id="id" class="form-control" value="{{$personelBilgi->id}}" type="hidden" name="id" required>
                               <div class="tabs">

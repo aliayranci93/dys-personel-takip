@@ -21,5 +21,5 @@ Route::get('/', function () {
 Route::get('/personel-listesi', [PersonelBilgiController::class, 'index'])->name('personel-list');
 Route::get('/personel-kaydet', [PersonelBilgiController::class, 'create'])->name('personel-kaydet-ekran');
 Route::post('/personel-kaydet', [PersonelBilgiController::class, 'store'])->name('personel-kaydet');
-Route::get('/personel-duzenle/{id}', [PersonelBilgiController::class, 'edit'])->name('personel-edit-ekran');
-Route::post('/personel-duzenle', [PersonelBilgiController::class, 'update'])->name('personel-update');
+Route::get('/personel-duzenle/{id}', [PersonelBilgiController::class, 'edit'])->name('personel-duzenle-ekran');
+Route::post('/personel-duzenle', [PersonelBilgiController::class, 'update'])->name('personel-duzenle');

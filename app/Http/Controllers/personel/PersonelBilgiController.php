@@ -16,7 +16,7 @@ class PersonelBilgiController extends Controller
     public function index()
     {
         //
-        $personelBilgi = PersonelBilgi::get();
+        $personelBilgi = PersonelBilgi::simplePaginate(10);
        // dd($personelBilgi);
         return view('personel-bilgi-listesi',compact('personelBilgi'));
     }
