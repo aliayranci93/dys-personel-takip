@@ -104,6 +104,9 @@ class PersonelBilgiController extends Controller
      */
     public function destroy($id)
     {
-        //
+       // dd($id);
+        PersonelBilgi::destroy($id);
+
+        return back();
     }
 }
