@@ -1,7 +1,9 @@
 
 @extends('katmanlar.anakatman')
- 
+
 @section('icerik')
+@include('popup.egitim_durumu')
+<a class="btn btn-primary" data-bs-target="#modal-3" data-bs-toggle="modal" href="#">Large Modal</a>
 <section id="page-content">
             <div class="container">
                <div class="row">
@@ -980,5 +982,10 @@
                
             </div>
       </section>
+      
+   
+
+
+
 
       @endsection
