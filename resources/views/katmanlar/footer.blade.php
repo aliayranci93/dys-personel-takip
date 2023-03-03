@@ -71,13 +71,6 @@
       <!-- end: Body Inner -->
       <!-- Scroll top -->
       <a id="scrollTop"><i class="icon-chevron-up"></i><i class="icon-chevron-up"></i></a>
-      <!--Plugins-->
-      <script src="{{env('APP_URL')}}/js/jquery.js"></script>
-      <script src="{{env('APP_URL')}}/js/plugins.js"></script>
-      <!--Template functions-->
-      <script src="{{env('APP_URL')}}/js/functions.js"></script>
-      <!-- jQuery Validate plugin files-->
-      <script src="{{env('APP_URL')}}/plugins/validate/validate.min.js"></script>
-      <script src="{{env('APP_URL')}}/plugins/validate/valildate-rules.js"></script>
+     
    </body>
 </html>

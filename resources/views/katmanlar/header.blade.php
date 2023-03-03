@@ -3,7 +3,16 @@
    <head>
    @include('katmanlar.head')
    </head>
+   
    <body>
+       <!--Plugins-->
+       <script src="{{env('APP_URL')}}/js/jquery.js"></script>
+      <script src="{{env('APP_URL')}}/js/plugins.js"></script>
+      <!--Template functions-->
+      <script src="{{env('APP_URL')}}/js/functions.js"></script>
+      <!-- jQuery Validate plugin files-->
+      <script src="{{env('APP_URL')}}/plugins/validate/validate.min.js"></script>
+      <script src="{{env('APP_URL')}}/plugins/validate/valildate-rules.js"></script>
       <!-- Body Inner -->
       <div class="body-inner">
          <!-- Header -->

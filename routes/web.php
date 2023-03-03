@@ -31,3 +31,5 @@ Route::post('/personel-kaydet', [PersonelBilgiController::class, 'store'])->name
 Route::get('/personel-duzenle/{id}', [PersonelBilgiController::class, 'edit'])->name('personel-duzenle-ekran');
 Route::post('/personel-duzenle', [PersonelBilgiController::class, 'update'])->name('personel-duzenle');
 Route::delete('/personel-sil/{id}', [PersonelBilgiController::class, 'destroy'])->name('personel-sil');
+
+Route::post('/egitim_durumu_kaydet', [PersonelBilgiController::class, 'egitimDurumuKaydet'])->name('egitim-durumu-kaydet');

@@ -3,7 +3,7 @@
 
 @section('icerik')
 @include('popup.egitim_durumu')
-<a class="btn btn-primary" data-bs-target="#modal-3" data-bs-toggle="modal" href="#">Large Modal</a>
+
 <section id="page-content">
             <div class="container">
                <div class="row">
@@ -14,8 +14,9 @@
                            <p class="text-muted">Türkiye Cumhuriyeti Ticaret Bakanlığı Takip Sistemi</p>
                         </div>
                         <div class="card-body">
-                           <form method="POST" action="http://127.0.0.1:8000/personel-kaydet">
-                           <input type="hidden" name="_token" value="zxm395ZcrNVYJJMvXxMrnj9or5dCP0lyj0vj9tGV">                              <div class="tabs">
+                           <form method="POST" action="{{route('personel-kaydet')}}">
+                           @csrf                           
+                           <div class="tabs">
                                  <ul class="nav nav-tabs" id="myTab" role="tablist">
                                     <li class="nav-item">
                                        <a class="nav-link" id="home-tab" data-bs-toggle="tab" href="#tabProfile" role="tab" aria-controls="home" aria-selected="false">Profile</a>
@@ -163,11 +164,10 @@
                                           <div class="row">
                                           <div class="row mb-5">
                     <div class="col-lg-6">
-                        <h4>Advanced Search</h4>
+                        <h4>Eğitim Durumu</h4>
                     </div>
                     <div class="col-lg-6 text-right">
-                        <button type="button" data-target="#egitim_durumu" data-toggle="modal" class="btn btn-light"><i class="icon-plus"></i> Add Record</button>
-                        <a class="btn" data-target="#egitim_durumu" data-toggle="modal" href="#">Large Modal</a>
+                        <button type="button" data-target="#egitim_durumu" data-id="5" data-toggle="modal" data-bs-target="#modal-3" data-bs-toggle="modal"  class="btn btn-light" id ="egitim_durum_add_btn"><i class="icon-plus"></i> Add Record</button>
                         <div class="p-dropdown ml-3 float-right p-dropdown-invert">
                             <a class="title btn btn-light"><i class="icon-sliders"></i> Options</a>
                             <div class="p-dropdown-content">
@@ -984,7 +984,15 @@
       </section>
       
    
-
+      <script>
+    $(document).on("click", "#egitim_durum_add_btn", function () {
+  
+     var myBookId = $(this).data('id');
+     //debugger;
+     //alert(myBookId);
+     $("#user_id").val( myBookId );
+});
+</script>
 
 
 

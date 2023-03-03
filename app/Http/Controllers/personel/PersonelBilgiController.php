@@ -5,6 +5,9 @@ namespace App\Http\Controllers\personel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\personel\PersonelBilgi;
+use App\Models\OgrenimDurumu;
+
+
 
 class PersonelBilgiController extends Controller
 {
@@ -108,5 +111,14 @@ class PersonelBilgiController extends Controller
         PersonelBilgi::destroy($id);
 
         return back();
+    }
+
+    public function egitimDurumuKaydet(Request $request)
+    {
+        $ogrenimDurumu=$request->all();
+        //dd($ogrenimDurumu);
+        OgrenimDurumu::create($ogrenimDurumu);
+
+        return view('personel-bilgi-kayit');
     }
 }
