@@ -33,3 +33,4 @@ Route::post('/personel-duzenle', [PersonelBilgiController::class, 'update'])->na
 Route::delete('/personel-sil/{id}', [PersonelBilgiController::class, 'destroy'])->name('personel-sil');
 
 Route::post('/egitim_durumu_kaydet', [PersonelBilgiController::class, 'egitimDurumuKaydet'])->name('egitim-durumu-kaydet');
+Route::get('/egitim_durumu_getir', [PersonelBilgiController::class, 'egitimDurumuGetir'])->name('egitim-durumu-getir');

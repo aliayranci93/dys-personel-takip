@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\personel\PersonelBilgi;
 use App\Models\OgrenimDurumu;
-
+use Yajra\DataTables\DataTables;
 
 
 class PersonelBilgiController extends Controller
@@ -47,9 +47,9 @@ class PersonelBilgiController extends Controller
        $personelBilgi=$request->all();
        $personelBilgi['olusturan_kullanici']='Admin';
        $personelBilgi['guncelleyen_kullanici']='Admin';
-       PersonelBilgi::create($personelBilgi);
+       $personelBilgiKayit=PersonelBilgi::create($personelBilgi);
 
-        return view('personel-bilgi-kayit');
+        return  redirect()->route('personel-duzenle-ekran', $personelBilgiKayit->id)->with('message', 'State saved correctly!!!');
         
     }
     
@@ -72,10 +72,12 @@ class PersonelBilgiController extends Controller
      */
     public function edit($id)
     {
-        //
+        
         $personelBilgi = PersonelBilgi::find($id);
 
-        return view('personel-bilgi-duzenle',compact('personelBilgi'));
+        $ogrenimDurumlari=OgrenimDurumu::where('user_id',$personelBilgi->id)->get();
+
+        return view('personel-bilgi-duzenle',compact('personelBilgi','ogrenimDurumlari'));
     }
 
     /**
@@ -115,10 +117,38 @@ class PersonelBilgiController extends Controller
 
     public function egitimDurumuKaydet(Request $request)
     {
+        //dd($request);
         $ogrenimDurumu=$request->all();
         //dd($ogrenimDurumu);
-        OgrenimDurumu::create($ogrenimDurumu);
+        $ogrenimDurumu=OgrenimDurumu::create($ogrenimDurumu);
 
-        return view('personel-bilgi-kayit');
+        return response()->json(['success'=>'Product saved successfully.']);
     }
+
+    public function egitimDurumuGetir(Request $request)
+    {
+      //  dd($request->ajax());
+      //  if ($request->ajax()) {
+        $data = OgrenimDurumu::latest()->get();
+        //dd( $data);
+  
+        return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('action', function($row){
+   
+                           $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editProduct">Edit</a>';
+   
+                           $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteProduct">Delete</a>';
+    
+                            return $btn;
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true);
+
+      //  }
+
+     
+    }
+
+  
 }

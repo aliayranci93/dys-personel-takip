@@ -2,7 +2,7 @@
         <!--Modal large -->
         <div class="modal fade" id="modal-3" tabindex="-1" role="modal" aria-labelledby="modal-label-3" aria-hidden="true">
         
-        <form method="POST" action="{{route('egitim-durumu-kaydet')}}">
+        <form id="egitim_durumu" >
         @csrf
         <input id="user_id" name="user_id" type ="hidden">
             <div class="modal-dialog modal-lg">
@@ -31,7 +31,7 @@
                     </div>
                     <div class="modal-footer">
                         <button data-bs-dismiss="modal" class="btn btn-b" type="button">Close</button>
-                        <button type="submit" id="button1id" name="button1id" class="btn btn-sm">Kaydet</button>
+                        <button id="egitim_durumu_button" name="egitim_durumu_button" class="btn btn-sm">Kaydet</button>
                     </div>
                 </div>
             </div>

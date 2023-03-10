@@ -9,3 +9,5 @@
       <!-- Stylesheets & Fonts -->
       <link href="{{env('APP_URL')}}/css/plugins.css" rel="stylesheet">
       <link href="{{env('APP_URL')}}/css/style.css" rel="stylesheet">
+ 
+<link href="{{env('APP_URL')}}/plugins/datatables/datatables.min.css" rel="stylesheet" />
